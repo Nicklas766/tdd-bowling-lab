@@ -11,4 +11,9 @@ public class CalculatingScore {
 		int[] frame = {throw1, throw2};
 		return frame;
 	}
+
+	public Object[] createGame() {
+		Object[] game = new Object[0];
+		return game;
+	}
 }

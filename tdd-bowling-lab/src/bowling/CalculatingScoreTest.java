@@ -30,7 +30,7 @@ class CalculatingScoreTest {
 		assertEquals("A throw has to be between 0 and 10", exception.getMessage());
 	}
 
-	@Test()
+	@Test
 	public void addFrameIncorrectInputSum() {
 		int throw1 = 5;
 		int throw2 = 8;
@@ -41,4 +41,14 @@ class CalculatingScoreTest {
 		assertEquals("The two throws can not be more than 10 combined", exception.getMessage());
 	}
 
+	@Test
+	public void createGame() {
+		CalculatingScore scorer = new CalculatingScore();
+		Object[] game = scorer.createGame();
+
+		int[] frame = new int[2];
+		Object[] expectedResult = {frame, frame, frame, frame, frame, frame, frame, frame, frame, frame};
+
+		assertArrayEquals(expectedResult, game);
+	}
 }
