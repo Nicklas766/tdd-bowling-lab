@@ -79,4 +79,15 @@ class CalculatingScoreTest {
 		assertEquals(shouldNotBeSpare, false);
 	}
 	
+	@Test
+	// Should return 15 since first is spare and frame after is [5, 1]
+	public void testGetSpareScore() {
+		int[] spare   		  = new CalculatingScore().createFrame(6, 4);
+		int[] frameAfterSpare = new CalculatingScore().createFrame(5, 1);
+		
+		boolean score =  new CalculatingScore().getSpareScore(spare, frameAfterSpare);
+		
+		assertEquals(score, 15);
+	}
+	
 }
