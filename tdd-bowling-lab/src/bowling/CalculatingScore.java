@@ -24,7 +24,14 @@ public class CalculatingScore {
 	}
 	
 	public static boolean isSpare(int[] frame) {
-		return (getFrameScore(frame) == 10);
+		if (frame[0] == 10) {
+			return false;
+		}
+		return getFrameScore(frame) == 10;
+	}
+	
+	public static int getSpareScore(int[] spare, int[] frameAfterSpare) {
+		return getFrameScore(spare) + frameAfterSpare[0];
 	}
 
 	public static boolean isStrike(int[] frame) throws IllegalArgumentException {

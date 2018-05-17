@@ -1,5 +1,5 @@
 package bowling;
-
+import java.util.stream.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -67,18 +67,32 @@ class CalculatingScoreTest {
 	}
 	
 	@Test
-	// Should return true and false
+	// Should return true and false since first is a spare and last is not
 	public void testIsSpare() {
 		int[] spare    = new CalculatingScore().createFrame(6, 4);
 		int[] notSpare = new CalculatingScore().createFrame(5, 1);
+		int[] strike   = new CalculatingScore().createFrame(10, 0);
 		
 		boolean shouldBeSpare =  new CalculatingScore().isSpare(spare);
 		boolean shouldNotBeSpare =  new CalculatingScore().isSpare(notSpare);
+		boolean shouldNotBeSpare2 =  new CalculatingScore().isSpare(strike);
 		
 		assertEquals(shouldBeSpare, true);
 		assertEquals(shouldNotBeSpare, false);
+		assertEquals(shouldNotBeSpare2, false);
 	}
 	
+	@Test
+	// Should return 15 since first is spare and frame after is [5, 1]
+	public void testGetSpareScore() {
+		int[] spare   		  = new CalculatingScore().createFrame(6, 4);
+		int[] frameAfterSpare = new CalculatingScore().createFrame(5, 1);
+		
+		int score =  new CalculatingScore().getSpareScore(spare, frameAfterSpare);
+		
+		assertEquals(score, 15);
+	}
+
 	@Test
 	public void testIsStrike() {
 		int[] strike = CalculatingScore.createFrame(10, 0);
