@@ -26,5 +26,16 @@ public class CalculatingScore {
 	public static boolean isSpare(int[] frame) {
 		return (getFrameScore(frame) == 10);
 	}
-	
+
+	public static boolean isStrike(int[] frame) throws IllegalArgumentException {
+		if (frame[0] == 10) {
+			if (frame[1] == 0) {
+				return true;
+			} else {
+				throw new IllegalArgumentException("Second throw should be 0 if first throw is 10");
+			}
+		} else {
+			return false;
+		}
+	}
 }
