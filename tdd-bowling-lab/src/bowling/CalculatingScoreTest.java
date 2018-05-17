@@ -92,7 +92,6 @@ class CalculatingScoreTest {
 		
 		assertEquals(score, 15);
 	}
-	
 
 	
 
@@ -106,4 +105,6 @@ class CalculatingScoreTest {
 		assertEquals(shouldBeStrike, true);
 		assertEquals(shouldNotBeStrike, false);
 	}
+	
+
 }
