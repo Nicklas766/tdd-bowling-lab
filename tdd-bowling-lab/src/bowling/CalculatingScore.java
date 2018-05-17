@@ -26,4 +26,9 @@ public class CalculatingScore {
 	public static int getFrameScore(int[] frame) {
 		return IntStream.of(frame).sum();
 	}
+	
+	public static boolean isSpare(int[] frame) {
+		return (getFrameScore(frame) == 10);
+	}
+	
 }
