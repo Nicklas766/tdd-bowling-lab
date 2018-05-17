@@ -51,4 +51,14 @@ class CalculatingScoreTest {
 
 		assertArrayEquals(expectedResult, game);
 	}
+	
+	
+	@Test
+	// Should return sum of frame, which is 9 in this case
+	public void testGetFrameScore() {
+		int [] frame   = new CalculatingScore().createFrame(5, 4);
+		int frameScore = new CalculatingScore().getFrameScore(frame);
+		
+		assertEquals(frame, 9);
+	}
 }
