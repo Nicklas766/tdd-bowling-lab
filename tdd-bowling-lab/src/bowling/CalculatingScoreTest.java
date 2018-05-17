@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class CalculatingScoreTest {
 
 	@Test
-	public void addFrameCorrectFrame() {
+	public void testAddFrameCorrectFrame() {
 		int throw1 = 5;
 		int throw2 = 4;
 
@@ -19,7 +19,7 @@ class CalculatingScoreTest {
 	}
 
 	@Test
-	public void addFrameIncorrectInputs() {
+	public void testAddFrameIncorrectInputs() {
 		int throw1 = -1;
 		int throw2 = 4;
 
@@ -28,7 +28,7 @@ class CalculatingScoreTest {
 	}
 
 	@Test
-	public void addFrameIncorrectInputSum() {
+	public void testAddFrameIncorrectInputSum() {
 		int throw1 = 5;
 		int throw2 = 8;
 
@@ -37,7 +37,7 @@ class CalculatingScoreTest {
 	}
 
 	@Test
-	public void createGame() {
+	public void testCreateGame() {
 		int[] frame1 = CalculatingScore.createFrame(1, 5);
 		int[] frame2 = CalculatingScore.createFrame(3, 6);
 		int[] frame3 = CalculatingScore.createFrame(7, 2);
@@ -79,4 +79,16 @@ class CalculatingScoreTest {
 		assertEquals(shouldNotBeSpare, false);
 	}
 	
+	@Test
+	public void testIsStrike() {
+		int[] strike = CalculatingScore.createFrame(10, 0);
+		int[] notStrike = CalculatingScore.createFrame(0, 0);
+
+		boolean shouldBeStrike = CalculatingScore.isStrike(strike);
+		boolean shouldNotBeStrike = CalculatingScore.isStrike(notStrike);
+
+		assertEquals(shouldBeStrike, true);
+		assertEquals(shouldNotBeStrike, false);
+	}
+
 }
