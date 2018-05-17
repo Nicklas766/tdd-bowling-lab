@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class CalculatingScoreTest {
 
 	@Test
-	public void addFrame() {
+	public void addFrame() throws Exception {
 		int throw1 = 5;
 		int throw2 = 4;
 
