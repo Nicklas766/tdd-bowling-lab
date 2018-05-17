@@ -67,7 +67,7 @@ class CalculatingScoreTest {
 	}
 	
 	@Test
-	// Should return true and false
+	// Should return true and false since first is a spare and last is not
 	public void testIsSpare() {
 		int[] spare    = new CalculatingScore().createFrame(6, 4);
 		int[] notSpare = new CalculatingScore().createFrame(5, 1);
