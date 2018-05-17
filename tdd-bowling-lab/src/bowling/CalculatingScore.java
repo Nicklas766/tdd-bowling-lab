@@ -13,7 +13,7 @@ public class CalculatingScore {
 		return frame;
 	}
 
-	public Object[] createGame() {
+	public Object[] createGame(int[] frame1, int[] frame2, int[] frame3, int[] frame4, int[] frame5, int[] frame6, int[] frame7, int[] frame8, int[] frame9, int[] frame10) {
 		Object[] game = new Object[10];
 
 		for (int i=0; i < game.length; i++) {
