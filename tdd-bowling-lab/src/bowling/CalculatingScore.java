@@ -30,4 +30,8 @@ public class CalculatingScore {
 	public static boolean isStrike(int[] frame) throws IllegalArgumentException {
 		return frame[0] == 10;
 	}
+
+	public static int calculateStrike(int[] strikeFrame, int[] afterStrikeFrame) {
+		return getFrameScore(strikeFrame) + getFrameScore(afterStrikeFrame);
+	}
 }
