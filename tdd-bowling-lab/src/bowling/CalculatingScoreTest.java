@@ -1,5 +1,5 @@
 package bowling;
-
+import java.util.stream.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -92,5 +92,7 @@ class CalculatingScoreTest {
 		
 		assertEquals(score, 15);
 	}
+	
+
 	
 }
