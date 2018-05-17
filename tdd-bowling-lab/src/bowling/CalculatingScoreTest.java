@@ -49,9 +49,9 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		Object[] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10);
+		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10);
 
-		Object[] expectedResult = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10};
+		int[][] expectedResult = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10};
 
 		assertArrayEquals(expectedResult, game);
 	}

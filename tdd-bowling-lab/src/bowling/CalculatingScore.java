@@ -13,8 +13,8 @@ public class CalculatingScore {
 		return frame;
 	}
 
-	public static Object[] createGame(int[] frame1, int[] frame2, int[] frame3, int[] frame4, int[] frame5, int[] frame6, int[] frame7, int[] frame8, int[] frame9, int[] frame10) {
-		Object[] game = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10};
+	public static int[][] createGame(int[] frame1, int[] frame2, int[] frame3, int[] frame4, int[] frame5, int[] frame6, int[] frame7, int[] frame8, int[] frame9, int[] frame10) {
+		int[][] game = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10};
 
 		return game;
 	}
