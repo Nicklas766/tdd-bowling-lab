@@ -91,4 +91,13 @@ class CalculatingScoreTest {
 		assertEquals(shouldNotBeStrike, false);
 	}
 
+	@Test
+	public void testCalculateStrike() {
+		int[] strikeFrame = CalculatingScore.createFrame(10, 0);
+		int[] afterStrikeFrame = CalculatingScore.createFrame(4, 3);
+
+		int strikeScore = CalculatingScore.calculateStrike(strikeFrame, afterStrikeFrame);
+
+		assertEquals(strikeScore, 17);
+	}
 }
