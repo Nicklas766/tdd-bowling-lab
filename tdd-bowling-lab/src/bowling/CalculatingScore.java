@@ -13,8 +13,11 @@ public class CalculatingScore {
 	}
 
 	public Object[] createGame() {
-		int[] frame = new int[2];
-		Object[] game = {frame, frame, frame, frame, frame, frame, frame, frame, frame, frame};
+		Object[] game = new Object[10];
+
+		for (int i=0; i < game.length; i++) {
+			game[i] = new int[2];
+		}
 
 		return game;
 	}
