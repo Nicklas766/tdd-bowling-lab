@@ -15,10 +15,16 @@ public class CalculatingScore {
 
 	public Object[] createGame(int[] frame1, int[] frame2, int[] frame3, int[] frame4, int[] frame5, int[] frame6, int[] frame7, int[] frame8, int[] frame9, int[] frame10) {
 		Object[] game = new Object[10];
-
-		for (int i=0; i < game.length; i++) {
-			game[i] = new int[2];
-		}
+		game[0] = frame1;
+		game[1] = frame2;
+		game[2] = frame3;
+		game[3] = frame4;
+		game[4] = frame5;
+		game[5] = frame6;
+		game[6] = frame7;
+		game[7] = frame8;
+		game[8] = frame9;
+		game[9] = frame10;
 
 		return game;
 	}
