@@ -49,9 +49,9 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		Object[] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10);
+		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10);
 
-		Object[] expectedResult = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10};
+		int[][] expectedResult = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10};
 
 		assertArrayEquals(expectedResult, game);
 	}
@@ -93,8 +93,7 @@ class CalculatingScoreTest {
 		assertEquals(score, 15);
 	}
 
-	
-
+	@Test
 	public void testIsStrike() {
 		int[] strike = CalculatingScore.createFrame(10, 0);
 		int[] notStrike = CalculatingScore.createFrame(0, 0);
@@ -105,6 +104,16 @@ class CalculatingScoreTest {
 		assertEquals(shouldBeStrike, true);
 		assertEquals(shouldNotBeStrike, false);
 	}
-	
+
+
+	@Test
+	public void testCalculateStrike() {
+		int[] strikeFrame = CalculatingScore.createFrame(10, 0);
+		int[] afterStrikeFrame = CalculatingScore.createFrame(4, 3);
+
+		int strikeScore = CalculatingScore.calculateStrike(strikeFrame, afterStrikeFrame);
+
+		assertEquals(strikeScore, 17);
+	}
 
 }
