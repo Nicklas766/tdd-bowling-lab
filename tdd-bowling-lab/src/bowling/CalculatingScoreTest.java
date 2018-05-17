@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class CalculatingScoreTest {
 
 	@Test
-	public void addFrame() throws Exception {
+	public void addFrameCorrectFrame() {
 		int throw1 = 5;
 		int throw2 = 4;
 
@@ -17,6 +17,28 @@ class CalculatingScoreTest {
 		int[] expectedResult = new int[] {5, 4};
 
 		assertArrayEquals(expectedResult, frame);
+	}
+
+	@Test
+	public void addFrameIncorrectInputs() {
+		int throw1 = -1;
+		int throw2 = 4;
+
+		CalculatingScore scorer = new CalculatingScore();
+
+		Throwable exception = assertThrows(IllegalArgumentException.class, ()->{scorer.createFrame(throw1, throw2);} );
+		assertEquals("A throw has to be between 0 and 10", exception.getMessage());
+	}
+
+	@Test()
+	public void addFrameIncorrectInputSum() {
+		int throw1 = 5;
+		int throw2 = 8;
+
+		CalculatingScore scorer = new CalculatingScore();
+
+		Throwable exception = assertThrows(IllegalArgumentException.class, ()->{scorer.createFrame(throw1, throw2);} );
+		assertEquals("The two throws can not be more than 10 combined", exception.getMessage());
 	}
 
 }
