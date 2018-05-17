@@ -41,4 +41,13 @@ public class CalculatingScore {
 	public static int calculateStrike(int[] strikeFrame, int[] afterStrikeFrame) {
 		return getFrameScore(strikeFrame) + getFrameScore(afterStrikeFrame);
 	}
+
+	public static int calculateGameScoreWithStrikes(int[][] game) {
+		int gameScore = 0;
+		for (int i = 0; i < game.length; i++) {
+			gameScore += (isStrike(game[i]) ? calculateStrike(game[i], game[i+1]) : getFrameScore(game[i]));
+		}
+		return gameScore;
+	}
+
 }
