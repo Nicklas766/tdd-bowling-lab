@@ -1,4 +1,5 @@
 package bowling;
+import java.util.stream.*;
 
 public class CalculatingScore {
 	public int[] createFrame(int throw1, int throw2) throws IllegalArgumentException {
@@ -20,5 +21,9 @@ public class CalculatingScore {
 		}
 
 		return game;
+	}
+	
+	public static int getFrameScore(int [] frame) {
+		return IntStream.of(frame).sum();
 	}
 }

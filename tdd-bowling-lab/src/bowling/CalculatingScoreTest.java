@@ -59,6 +59,6 @@ class CalculatingScoreTest {
 		int [] frame   = new CalculatingScore().createFrame(5, 4);
 		int frameScore = new CalculatingScore().getFrameScore(frame);
 		
-		assertEquals(frame, 9);
+		assertEquals(frameScore, 9);
 	}
 }
