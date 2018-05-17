@@ -27,4 +27,8 @@ public class CalculatingScore {
 		return getFrameScore(frame) == 10;
 	}
 	
+	public static int getSpareScore(int[] spare, int[] frameAfterSpare) {
+		return 10 + frameAfterSpare[0];
+	}
+	
 }

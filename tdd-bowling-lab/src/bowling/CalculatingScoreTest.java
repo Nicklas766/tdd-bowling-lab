@@ -85,7 +85,7 @@ class CalculatingScoreTest {
 		int[] spare   		  = new CalculatingScore().createFrame(6, 4);
 		int[] frameAfterSpare = new CalculatingScore().createFrame(5, 1);
 		
-		boolean score =  new CalculatingScore().getSpareScore(spare, frameAfterSpare);
+		int score =  new CalculatingScore().getSpareScore(spare, frameAfterSpare);
 		
 		assertEquals(score, 15);
 	}
