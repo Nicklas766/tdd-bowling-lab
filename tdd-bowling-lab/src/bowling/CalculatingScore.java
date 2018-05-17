@@ -24,6 +24,9 @@ public class CalculatingScore {
 	}
 	
 	public static boolean isSpare(int[] frame) {
+		if (frame[0] == 10) {
+			return false;
+		}
 		return getFrameScore(frame) == 10;
 	}
 	

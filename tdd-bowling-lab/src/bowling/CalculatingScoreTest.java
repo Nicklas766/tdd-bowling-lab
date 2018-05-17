@@ -71,12 +71,15 @@ class CalculatingScoreTest {
 	public void testIsSpare() {
 		int[] spare    = new CalculatingScore().createFrame(6, 4);
 		int[] notSpare = new CalculatingScore().createFrame(5, 1);
+		int[] strike   = new CalculatingScore().createFrame(10, 0);
 		
 		boolean shouldBeSpare =  new CalculatingScore().isSpare(spare);
 		boolean shouldNotBeSpare =  new CalculatingScore().isSpare(notSpare);
+		boolean shouldNotBeSpare2 =  new CalculatingScore().isSpare(strike);
 		
 		assertEquals(shouldBeSpare, true);
 		assertEquals(shouldNotBeSpare, false);
+		assertEquals(shouldNotBeSpare2, false);
 	}
 	
 	@Test
