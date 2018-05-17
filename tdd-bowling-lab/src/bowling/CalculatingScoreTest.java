@@ -61,4 +61,18 @@ class CalculatingScoreTest {
 		
 		assertEquals(frameScore, 9);
 	}
+	
+	@Test
+	// Should return true and false
+	public void testIsSpare() {
+		int[] spare    = new CalculatingScore().createFrame(6, 4);
+		int[] notSpare = new CalculatingScore().createFrame(5, 1);
+		
+		boolean shouldBeSpare =  new CalculatingScore().isSpare(spare);
+		boolean shouldNotBeSpare =  new CalculatingScore().isSpare(notSpare);
+		
+		assertEquals(shouldBeSpare, true);
+		assertEquals(shouldNotBeSpare, false);
+	}
+	
 }
