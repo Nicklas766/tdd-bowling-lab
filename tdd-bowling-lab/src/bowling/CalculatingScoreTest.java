@@ -7,8 +7,16 @@ import org.junit.jupiter.api.Test;
 class CalculatingScoreTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void addFrame() {
+		int throw1 = 5;
+		int throw2 = 4;
+
+		CalculatingScore scorer = new CalculatingScore();
+		int[] frame = scorer.createFrame(throw1, throw2);
+
+		int[] expectedResult = new int[] {5, 4};
+
+		assertArrayEquals(expectedResult, frame);
 	}
 
 }
