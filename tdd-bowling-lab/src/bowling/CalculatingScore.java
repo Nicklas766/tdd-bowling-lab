@@ -23,7 +23,7 @@ public class CalculatingScore {
 		return game;
 	}
 	
-	public static int getFrameScore(int [] frame) {
+	public static int getFrameScore(int[] frame) {
 		return IntStream.of(frame).sum();
 	}
 }
