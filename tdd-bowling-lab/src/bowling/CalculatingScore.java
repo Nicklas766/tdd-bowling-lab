@@ -60,7 +60,14 @@ public class CalculatingScore {
 	}
 
 	public static int calculateGameScoreWithStrikePrecedeSpare(int[][] game) {
-		return 0;
+		int gameScore = 0;
+		for (int i = 0; i < game.length; i++) {
+			if (i+1 < game.length) {
+				gameScore += calculateStrikeFramePrecedeSpare(game[i], game[i+1]);
+			} else {
+				gameScore += getFrameScore(game[i]);
+			}
+		}
+		return gameScore;
 	}
-
 }
