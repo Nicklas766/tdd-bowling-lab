@@ -159,14 +159,11 @@ class CalculatingScoreTest {
 		int[] spare = CalculatingScore.createFrame(4,  6);
 		int[] frame = CalculatingScore.createFrame(7, 2);
 
-		int strikeScoreWithSpare = CalculatingScore.calculateStrikeFramePrecedeSpare(strike, spare);
+		int strikeScoreWithSpare = CalculatingScore.calculateStrike(strike, spare);
 		assertEquals(20, strikeScoreWithSpare);	
 
-		int strikeScoreWithoutSpare = CalculatingScore.calculateStrikeFramePrecedeSpare(strike, frame);
+		int strikeScoreWithoutSpare = CalculatingScore.calculateStrike(strike, frame);
 		assertEquals(19, strikeScoreWithoutSpare);
-
-		int frameScore = CalculatingScore.calculateStrikeFramePrecedeSpare(spare, frame);
-		assertEquals(17, frameScore);
 	}
 
 	@Test
@@ -184,7 +181,7 @@ class CalculatingScoreTest {
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10);
 
-		int gameScore = CalculatingScore.calculateGameScoreWithStrikePrecedeSpare(game);
+		int gameScore = CalculatingScore.calculateGameScore(game);
 
 		assertEquals(103, gameScore);
 	}

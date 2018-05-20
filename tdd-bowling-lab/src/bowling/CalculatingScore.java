@@ -26,7 +26,14 @@ public class CalculatingScore {
 	public static int calculateGameScore(int[][] game) {
 		int gameScore = 0;
 		for (int i = 0; i < game.length; i++) {
-			gameScore += (isStrike(game[i]) ? calculateStrike(game[i], game[i+1]) : getFrameScore(game[i]));
+			boolean isNextFrame = i+1 < game.length;
+			if (isStrike(game[i]) && isNextFrame) {
+				gameScore += calculateStrike(game[i], game[i+1]);
+			} else if (isSpare(game[i]) && isNextFrame) {
+				gameScore += getSpareScore(game[i], game[i+1]);
+			} else {
+				gameScore += getFrameScore(game[i]);
+			}
 		}
 		return gameScore;
 	}
@@ -48,26 +55,5 @@ public class CalculatingScore {
 
 	public static int getSpareScore(int[] spare, int[] frameAfterSpare) {
 		return getFrameScore(spare) + frameAfterSpare[0];
-	}
-
-	public static int calculateStrikeFramePrecedeSpare(int[] currentFrame, int[] nextFrame) {
-		if (isStrike(currentFrame)) {
-			return calculateStrike(currentFrame, nextFrame);
-		} else if (isSpare(currentFrame)) {
-			return getSpareScore(currentFrame, nextFrame);
-		}
-		return getFrameScore(currentFrame);
-	}
-
-	public static int calculateGameScoreWithStrikePrecedeSpare(int[][] game) {
-		int gameScore = 0;
-		for (int i = 0; i < game.length; i++) {
-			if (i+1 < game.length) {
-				gameScore += calculateStrikeFramePrecedeSpare(game[i], game[i+1]);
-			} else {
-				gameScore += getFrameScore(game[i]);
-			}
-		}
-		return gameScore;
 	}
 }
