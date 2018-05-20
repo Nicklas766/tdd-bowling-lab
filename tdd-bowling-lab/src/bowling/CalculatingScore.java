@@ -72,6 +72,10 @@ public class CalculatingScore {
 	}
 
 	public static int calculateGameScore(int[][] game) {
-		return 0;
+		int gameScore = 0;
+		for (int i = 0; i < game.length; i++) {
+			gameScore += getFrameScore(game[i]);
+		}
+		return gameScore;
 	}
 }
