@@ -146,5 +146,8 @@ class CalculatingScoreTest {
 
 		int strikeScoreWithoutSpare = CalculatingScore.calculateStrikeFramePrecedeSpare(strike, frame);
 		assertEquals(19, strikeScoreWithoutSpare);
+
+		int frameScore = CalculatingScore.calculateStrikeFramePrecedeSpare(spare, frame);
+		assertEquals(17, frameScore);
 	}
 }
