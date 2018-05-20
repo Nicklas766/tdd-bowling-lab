@@ -70,4 +70,8 @@ public class CalculatingScore {
 		}
 		return gameScore;
 	}
+
+	public static int calculateGameScore(int[][] game) {
+		return 0;
+	}
 }
