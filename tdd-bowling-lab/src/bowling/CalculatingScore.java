@@ -59,4 +59,8 @@ public class CalculatingScore {
 		return getFrameScore(currentFrame);
 	}
 
+	public static int calculateGameScoreWithStrikePrecedeSpare(int[][] game) {
+		return 0;
+	}
+
 }
