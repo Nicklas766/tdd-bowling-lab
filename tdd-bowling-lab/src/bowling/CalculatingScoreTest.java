@@ -134,4 +134,17 @@ class CalculatingScoreTest {
 
 		assertEquals(gameScore, 94);
 	}
+
+	@Test
+	public void testcalculateStrikeFramePrecedeSpare() {
+		int[] strike = CalculatingScore.createFrame(10, 0);
+		int[] spare = CalculatingScore.createFrame(4,  6);
+		int[] frame = CalculatingScore.createFrame(7, 2);
+
+		int strikeScoreWithSpare = CalculatingScore.calculateStrikeFramePrecedeSpare(strike, spare);
+		assertEquals(20, strikeScoreWithSpare);	
+
+		int strikeScoreWithoutSpare = CalculatingScore.calculateStrikeFramePrecedeSpare(strike, frame);
+		assertEquals(19, strikeScoreWithoutSpare);
+	}
 }
