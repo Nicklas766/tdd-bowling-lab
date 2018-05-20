@@ -50,8 +50,13 @@ public class CalculatingScore {
 		return gameScore;
 	}
 
-	public static int calculateStrikeFramePrecedeSpare(int[] strikeFrame, int[] afterStrikeFrame) {
-		return 0;
+	public static int calculateStrikeFramePrecedeSpare(int[] currentFrame, int[] nextFrame) {
+		if (isStrike(currentFrame)) {
+			return calculateStrike(currentFrame, nextFrame);
+		} else if (isSpare(currentFrame)) {
+			return getSpareScore(currentFrame, nextFrame);
+		}
+		return getFrameScore(currentFrame);
 	}
 
 }
