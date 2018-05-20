@@ -26,25 +26,17 @@ public class CalculatingScore {
 	public static int calculateGameScore(int[][] game) {
 		int gameScore = 0;
 		for (int i = 0; i < game.length; i++) {
-			gameScore += getFrameScore(game[i]);
+			gameScore += (isStrike(game[i]) ? calculateStrike(game[i], game[i+1]) : getFrameScore(game[i]));
 		}
 		return gameScore;
 	}
 
-	public static boolean isStrike(int[] frame) throws IllegalArgumentException {
+	public static boolean isStrike(int[] frame) {
 		return frame[0] == 10;
 	}
 
 	public static int calculateStrike(int[] strikeFrame, int[] afterStrikeFrame) {
 		return getFrameScore(strikeFrame) + getFrameScore(afterStrikeFrame);
-	}
-
-	public static int calculateGameScoreWithStrikes(int[][] game) {
-		int gameScore = 0;
-		for (int i = 0; i < game.length; i++) {
-			gameScore += (isStrike(game[i]) ? calculateStrike(game[i], game[i+1]) : getFrameScore(game[i]));
-		}
-		return gameScore;
 	}
 
 	public static boolean isSpare(int[] frame) {

@@ -121,7 +121,7 @@ class CalculatingScoreTest {
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10);
 
-		int gameScore = CalculatingScore.calculateGameScoreWithStrikes(game);
+		int gameScore = CalculatingScore.calculateGameScore(game);
 
 		assertEquals(gameScore, 94);
 	}
