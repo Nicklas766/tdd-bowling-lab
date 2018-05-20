@@ -13,25 +13,22 @@ public class CalculatingScore {
 		return frame;
 	}
 
+	public static int getFrameScore(int[] frame) {
+		return IntStream.of(frame).sum();
+	}
+
 	public static int[][] createGame(int[] frame1, int[] frame2, int[] frame3, int[] frame4, int[] frame5, int[] frame6, int[] frame7, int[] frame8, int[] frame9, int[] frame10) {
 		int[][] game = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10};
 
 		return game;
 	}
-	
-	public static int getFrameScore(int[] frame) {
-		return IntStream.of(frame).sum();
-	}
-	
-	public static boolean isSpare(int[] frame) {
-		if (frame[0] == 10) {
-			return false;
+
+	public static int calculateGameScore(int[][] game) {
+		int gameScore = 0;
+		for (int i = 0; i < game.length; i++) {
+			gameScore += getFrameScore(game[i]);
 		}
-		return getFrameScore(frame) == 10;
-	}
-	
-	public static int getSpareScore(int[] spare, int[] frameAfterSpare) {
-		return getFrameScore(spare) + frameAfterSpare[0];
+		return gameScore;
 	}
 
 	public static boolean isStrike(int[] frame) throws IllegalArgumentException {
@@ -48,6 +45,17 @@ public class CalculatingScore {
 			gameScore += (isStrike(game[i]) ? calculateStrike(game[i], game[i+1]) : getFrameScore(game[i]));
 		}
 		return gameScore;
+	}
+
+	public static boolean isSpare(int[] frame) {
+		if (frame[0] == 10) {
+			return false;
+		}
+		return getFrameScore(frame) == 10;
+	}
+
+	public static int getSpareScore(int[] spare, int[] frameAfterSpare) {
+		return getFrameScore(spare) + frameAfterSpare[0];
 	}
 
 	public static int calculateStrikeFramePrecedeSpare(int[] currentFrame, int[] nextFrame) {
@@ -67,14 +75,6 @@ public class CalculatingScore {
 			} else {
 				gameScore += getFrameScore(game[i]);
 			}
-		}
-		return gameScore;
-	}
-
-	public static int calculateGameScore(int[][] game) {
-		int gameScore = 0;
-		for (int i = 0; i < game.length; i++) {
-			gameScore += getFrameScore(game[i]);
 		}
 		return gameScore;
 	}
