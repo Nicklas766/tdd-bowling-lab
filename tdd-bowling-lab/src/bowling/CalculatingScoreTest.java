@@ -1,7 +1,6 @@
 package bowling;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.LinkedList;
 import org.junit.jupiter.api.Test;
 
 class CalculatingScoreTest {
@@ -58,7 +57,7 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		int[] bonusThrows = {};
+		int[] bonusThrows = new int[2];
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -80,7 +79,7 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		int[] bonusThrows = {};
+		int[] bonusThrows = new int[2];
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -124,7 +123,7 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		int[] bonusThrows = {};
+		int[] bonusThrows = new int[2];
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -186,7 +185,7 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		int[] bonusThrows = {};
+		int[] bonusThrows = new int[2];
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -210,7 +209,7 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		int[] bonusThrows = {};
+		int[] bonusThrows = new int[2];
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -233,7 +232,7 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		int[] bonusThrows = {};
+		int[] bonusThrows = new int[2];
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -256,7 +255,7 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 6);
 
-		int[] bonusThrows = {};
+		int[] bonusThrows = new int[2];
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -279,7 +278,8 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 8);
 		
-		int[] bonusThrows = {7};
+		int[] bonusThrows = new int[2];
+		bonusThrows[0] = 7;
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -322,7 +322,9 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(10, 0);
 
-		int[] bonusThrows = {7, 2};
+		int[] bonusThrows = new int[2];
+		bonusThrows[0] = 7;
+		bonusThrows[1] = 2;
 
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
@@ -345,7 +347,9 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 8);
 		
-		int[] bonusThrows = {9, 1};
+		int[] bonusThrows = new int[2];
+		bonusThrows[0] = 9;
+		bonusThrows[1] = 1;
 		
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 		
@@ -367,7 +371,9 @@ class CalculatingScoreTest {
 		int[] frame9 = CalculatingScore.createFrame(10, 0);
 		int[] frame10 = CalculatingScore.createFrame(10, 0);
 		
-		int[] bonusThrows = {10, 10};
+		int[] bonusThrows = new int[2];
+		bonusThrows[0] = 10;
+		bonusThrows[1] = 10;
 		
 		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 		
@@ -375,4 +381,28 @@ class CalculatingScoreTest {
 
 		assertEquals(300, gameScore);
 	}
+	
+	@Test
+	public void testCalculateGameWithRealGame() {
+		int[] frame1 = CalculatingScore.createFrame(6, 3);
+		int[] frame2 = CalculatingScore.createFrame(7, 1);
+		int[] frame3 = CalculatingScore.createFrame(8, 2);
+		int[] frame4 = CalculatingScore.createFrame(7, 2);
+		int[] frame5 = CalculatingScore.createFrame(10, 0);
+		int[] frame6 = CalculatingScore.createFrame(6, 2);
+		int[] frame7 = CalculatingScore.createFrame(7, 3);
+		int[] frame8 = CalculatingScore.createFrame(10, 0);
+		int[] frame9 = CalculatingScore.createFrame(8, 0);
+		int[] frame10 = CalculatingScore.createFrame(7, 3);
+		
+		int[] bonusThrows = new int[2];
+		bonusThrows[0] = 10;
+		
+		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
+		
+		int gameScore = CalculatingScore.calculateGameScore(game);
+
+		assertEquals(135, gameScore);
+	}
 }
+	

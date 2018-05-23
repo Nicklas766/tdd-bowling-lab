@@ -50,13 +50,16 @@ public class CalculatingScore {
 				if (isStrike(game[i])) {
 					// If multiple strike
 					if(isStrike(game[i+1])) {
-						gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + game[i+2][0];
+                        if (i+2 < game.length) {
+                            gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + game[i+2][0];
+                        } else {
+                            gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + bonusThrows[0];
+                        }
 					} else {
 						gameScore += calculateStrike(game[i], game[i+1]);
 					}
 				}				
 			} 
-			
 			if (!isNextFrame) {
 				gameScore += getStrikeLastFrameScore(game[i], bonusThrows);
 			}
@@ -90,4 +93,5 @@ public class CalculatingScore {
 		int frameScore = getFrameScore(strikeFrame);
 		return frameScore + IntStream.of(bonusThrows).sum();
 	}
+
 }
