@@ -36,28 +36,32 @@ public class CalculatingScore {
 			
 			boolean isNextFrame = i+1 < game.length;
 			
-			if (isStrike(game[i])) {
-				if (isNextFrame) {
+			
+			if (isNextFrame) {
+				
+				if (!isSpare(game[i]) && !isStrike(game[i]) ) {
+					gameScore += getFrameScore(game[i]);
+				}
+				
+				if (isSpare(game[i])) {
+					gameScore += getSpareScore(game[i], game[i+1]);
+				} 
+			
+				if (isStrike(game[i])) {
 					// If multiple strike
 					if(isStrike(game[i+1])) {
 						gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + game[i+2][0];
 					} else {
 						gameScore += calculateStrike(game[i], game[i+1]);
 					}
-				}
-				if (!isNextFrame) {
-					gameScore += getStrikeLastFrameScore(game[i], bonusThrows);
-				}
+				}				
 			} 
 			
-			if (isSpare(game[i])) {
-				gameScore += getSpareScore(game[i], game[i+1]);
-			} 
-	
-			
-			if (!isSpare(game[i]) && !isStrike(game[i]) ) {
-				gameScore += getFrameScore(game[i]);
+			if (!isNextFrame) {
+				gameScore += getStrikeLastFrameScore(game[i], bonusThrows);
 			}
+
+			
 	
 		}
 		return gameScore;
