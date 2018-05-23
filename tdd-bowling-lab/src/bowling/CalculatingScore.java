@@ -30,7 +30,14 @@ public class CalculatingScore {
 			boolean isNextFrame = i+1 < game.length;
 			
 			if (isStrike(game[i]) && isNextFrame) {
-				gameScore += calculateStrike(game[i], game[i+1]);
+				
+				// If multiple strike
+				if(isStrike(game[i+1])) {
+					gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + game[i+2][0];
+				} else {
+					gameScore += calculateStrike(game[i], game[i+1]);
+				}
+	
 			} else if (isSpare(game[i]) && isNextFrame) {
 				gameScore += getSpareScore(game[i], game[i+1]);
 			} else {
