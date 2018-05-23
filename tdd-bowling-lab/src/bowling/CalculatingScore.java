@@ -70,7 +70,9 @@ public class CalculatingScore {
 		return getFrameScore(spare) + frameAfterSpare[0];
 	}
 
-	public static int getStrikeLastFrameScore(int[] frame, int throw1, int throw2) {
-		return 0;
+	public static int getStrikeLastFrameScore(int[] strikeFrame, int throw1, int throw2) {
+		int frameScore = getFrameScore(strikeFrame);
+		frameScore = frameScore + throw1 + throw2;
+		return frameScore;
 	}
 }
