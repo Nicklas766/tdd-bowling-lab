@@ -278,9 +278,10 @@ class CalculatingScoreTest {
 		int[] frame8 = CalculatingScore.createFrame(4, 5);
 		int[] frame9 = CalculatingScore.createFrame(8, 1);
 		int[] frame10 = CalculatingScore.createFrame(2, 8);
+		
+		int[] bonusThrows = {7};
 
-		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, new int[7]);
-
+		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonusThrows);
 
 		int gameScore = CalculatingScore.calculateGameScore(game);
 

@@ -41,9 +41,10 @@ public class CalculatingScore {
 				}
 			} 
 			
-			if (isSpare(game[i]) && isNextFrame) {
+			if (isSpare(game[i])) {
 				gameScore += getSpareScore(game[i], game[i+1]);
 			} 
+	
 			
 			if (!isSpare(game[i]) && !isStrike(game[i]) ) {
 				gameScore += getFrameScore(game[i]);
