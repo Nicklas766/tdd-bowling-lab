@@ -1,4 +1,5 @@
 package bowling;
+import java.util.Arrays;
 import java.util.stream.*;
 
 public class CalculatingScore {
@@ -25,19 +26,27 @@ public class CalculatingScore {
 		return game;
 	}
 
-	public static int calculateGameScore(int[][] game) {
+	public static int calculateGameScore(int[][] gameAndBonusThrows) {
 		int gameScore = 0;
 		
-		for (int i = 0; i < game.length - 1; i++) {
+		int[][] game = Arrays.copyOf(gameAndBonusThrows, gameAndBonusThrows.length-1);
+		int[] bonusThrows = gameAndBonusThrows[gameAndBonusThrows.length-1];
+
+		for (int i = 0; i < game.length; i++) {
 			
-			boolean isNextFrame = i+1 < game.length - 1;
+			boolean isNextFrame = i+1 < game.length;
 			
-			if (isStrike(game[i]) && isNextFrame) {
-				// If multiple strike
-				if(isStrike(game[i+1])) {
-					gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + game[i+2][0];
-				} else {
-					gameScore += calculateStrike(game[i], game[i+1]);
+			if (isStrike(game[i])) {
+				if (isNextFrame) {
+					// If multiple strike
+					if(isStrike(game[i+1])) {
+						gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + game[i+2][0];
+					} else {
+						gameScore += calculateStrike(game[i], game[i+1]);
+					}
+				}
+				if (!isNextFrame) {
+					gameScore += getStrikeLastFrameScore(game[i], bonusThrows);
 				}
 			} 
 			
@@ -73,8 +82,8 @@ public class CalculatingScore {
 		return getFrameScore(spare) + frameAfterSpare[0];
 	}
 
-	public static int getStrikeLastFrameScore(int[] strikeFrame, int extraThrow1, int extraThrow2) {
+	public static int getStrikeLastFrameScore(int[] strikeFrame, int[] bonusThrows) {
 		int frameScore = getFrameScore(strikeFrame);
-		return frameScore + extraThrow1 + extraThrow2;
+		return frameScore + IntStream.of(bonusThrows).sum();
 	}
 }
