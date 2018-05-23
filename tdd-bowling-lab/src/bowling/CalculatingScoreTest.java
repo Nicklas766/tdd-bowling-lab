@@ -249,4 +249,15 @@ class CalculatingScoreTest {
 
 		assertEquals(98, gameScore);
 	}
+
+	@Test
+	public void testcalculateStrikeLastFrame() {
+		int[] strike = CalculatingScore.createFrame(10, 0);
+		int extraThrow1 = 7;
+		int extraThrow2 = 2;
+
+		int frameScore = CalculatingScore.getStrikeLastFrameScore(strike, extraThrow1, extraThrow2);
+
+		assertEquals(19, frameScore);
+	}
 }

@@ -69,4 +69,8 @@ public class CalculatingScore {
 	public static int getSpareScore(int[] spare, int[] frameAfterSpare) {
 		return getFrameScore(spare) + frameAfterSpare[0];
 	}
+
+	public static int getStrikeLastFrameScore(int[] frame, int throw1, int throw2) {
+		return 0;
+	}
 }
