@@ -287,6 +287,17 @@ class CalculatingScoreTest {
 
 		assertEquals(90, gameScore);
 	}
+	
+	@Test
+	// User story 10: should return 17
+	public void testScoreOfLastSpare() {
+		int[] frame1 = CalculatingScore.createFrame(2, 8);
+		int[] bonusThrows = {7};
+		
+		int spareScore =  CalculatingScore.getSpareScore(frame1, bonusThrows);
+
+		assertEquals(17, spareScore);
+	}
 
 	@Test
 	public void testcalculateStrikeLastFrame() {
