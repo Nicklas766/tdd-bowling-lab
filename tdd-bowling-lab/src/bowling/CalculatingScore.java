@@ -26,7 +26,9 @@ public class CalculatingScore {
 	public static int calculateGameScore(int[][] game) {
 		int gameScore = 0;
 		for (int i = 0; i < game.length; i++) {
+			
 			boolean isNextFrame = i+1 < game.length;
+			
 			if (isStrike(game[i]) && isNextFrame) {
 				gameScore += calculateStrike(game[i], game[i+1]);
 			} else if (isSpare(game[i]) && isNextFrame) {
