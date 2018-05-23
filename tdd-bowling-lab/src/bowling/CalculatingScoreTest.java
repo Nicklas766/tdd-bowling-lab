@@ -1,6 +1,7 @@
 package bowling;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedList;
 import org.junit.jupiter.api.Test;
 
 class CalculatingScoreTest {
@@ -265,6 +266,28 @@ class CalculatingScoreTest {
 	}
 
 	@Test
+	// User story 10: Should return 90
+	public void testGameLastFrameSpareWithBonusThrow() {
+		int[] frame1 = CalculatingScore.createFrame(1, 5);
+		int[] frame2 = CalculatingScore.createFrame(3, 6);
+		int[] frame3 = CalculatingScore.createFrame(7, 2);
+		int[] frame4 = CalculatingScore.createFrame(3, 6);
+		int[] frame5 = CalculatingScore.createFrame(4, 4);
+		int[] frame6 = CalculatingScore.createFrame(5, 3);
+		int[] frame7 = CalculatingScore.createFrame(3, 3);
+		int[] frame8 = CalculatingScore.createFrame(4, 5);
+		int[] frame9 = CalculatingScore.createFrame(8, 1);
+		int[] frame10 = CalculatingScore.createFrame(2, 8);
+
+		int[][] game = CalculatingScore.createGame(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, new int[7]);
+
+
+		int gameScore = CalculatingScore.calculateGameScore(game);
+
+		assertEquals(90, gameScore);
+	}
+
+	@Test
 	public void testcalculateStrikeLastFrame() {
 		int[] strike = CalculatingScore.createFrame(10, 0);
 		int[] bonusThrows = {7, 2};
@@ -294,6 +317,5 @@ class CalculatingScoreTest {
 		int gameScore = CalculatingScore.calculateGameScore(game);
 
 		assertEquals(92, gameScore);
-
 	}
 }
