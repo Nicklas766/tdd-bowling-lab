@@ -135,13 +135,13 @@ class CalculatingScoreTest {
 	@Test
 	// Should return true and false since first is a spare and last is not
 	public void testIsSpare() {
-		int[] spare    = new CalculatingScore().createFrame(6, 4);
-		int[] notSpare = new CalculatingScore().createFrame(5, 1);
-		int[] strike   = new CalculatingScore().createFrame(10, 0);
+		int[] spare    = CalculatingScore.createFrame(6, 4);
+		int[] notSpare = CalculatingScore.createFrame(5, 1);
+		int[] strike   = CalculatingScore.createFrame(10, 0);
 
-		boolean shouldBeSpare =  new CalculatingScore().isSpare(spare);
-		boolean shouldNotBeSpare =  new CalculatingScore().isSpare(notSpare);
-		boolean shouldNotBeSpare2 =  new CalculatingScore().isSpare(strike);
+		boolean shouldBeSpare =  CalculatingScore.isSpare(spare);
+		boolean shouldNotBeSpare =  CalculatingScore.isSpare(notSpare);
+		boolean shouldNotBeSpare2 =  CalculatingScore.isSpare(strike);
 
 		assertEquals(shouldBeSpare, true);
 		assertEquals(shouldNotBeSpare, false);
@@ -151,10 +151,10 @@ class CalculatingScoreTest {
 	@Test
 	// Should return 15 since first is spare and frame after is [5, 1]
 	public void testGetSpareScore() {
-		int[] spare   		  = new CalculatingScore().createFrame(6, 4);
-		int[] frameAfterSpare = new CalculatingScore().createFrame(5, 1);
+		int[] spare   		  = CalculatingScore.createFrame(6, 4);
+		int[] frameAfterSpare = CalculatingScore.createFrame(5, 1);
 
-		int score =  new CalculatingScore().getSpareScore(spare, frameAfterSpare);
+		int score =  CalculatingScore.getSpareScore(spare, frameAfterSpare);
 
 		assertEquals(score, 15);
 	}
@@ -267,10 +267,9 @@ class CalculatingScoreTest {
 	@Test
 	public void testcalculateStrikeLastFrame() {
 		int[] strike = CalculatingScore.createFrame(10, 0);
-		int extraThrow1 = 7;
-		int extraThrow2 = 2;
+		int[] bonusThrows = {7, 2};
 
-		int frameScore = CalculatingScore.getStrikeLastFrameScore(strike, extraThrow1, extraThrow2);
+		int frameScore = CalculatingScore.getStrikeLastFrameScore(strike, bonusThrows);
 
 		assertEquals(19, frameScore);
 	}

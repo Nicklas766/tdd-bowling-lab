@@ -44,7 +44,7 @@ public class CalculatingScore {
 					}
 				}
 				if (!isNextFrame) {
-					gameScore += getStrikeLastFrameScore(game[i], bonusThrows[0], bonusThrows[1]);
+					gameScore += getStrikeLastFrameScore(game[i], bonusThrows);
 				}
 			} 
 			
@@ -79,8 +79,8 @@ public class CalculatingScore {
 		return getFrameScore(spare) + frameAfterSpare[0];
 	}
 
-	public static int getStrikeLastFrameScore(int[] strikeFrame, int extraThrow1, int extraThrow2) {
+	public static int getStrikeLastFrameScore(int[] strikeFrame, int[] bonusThrows) {
 		int frameScore = getFrameScore(strikeFrame);
-		return frameScore + extraThrow1 + extraThrow2;
+		return frameScore + IntStream.of(bonusThrows).sum();
 	}
 }
