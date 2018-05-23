@@ -25,24 +25,28 @@ public class CalculatingScore {
 
 	public static int calculateGameScore(int[][] game) {
 		int gameScore = 0;
+		
 		for (int i = 0; i < game.length; i++) {
 			
 			boolean isNextFrame = i+1 < game.length;
 			
 			if (isStrike(game[i]) && isNextFrame) {
-				
 				// If multiple strike
 				if(isStrike(game[i+1])) {
 					gameScore += getFrameScore(game[i]) + getFrameScore(game[i+1]) + game[i+2][0];
 				} else {
 					gameScore += calculateStrike(game[i], game[i+1]);
 				}
-	
-			} else if (isSpare(game[i]) && isNextFrame) {
+			} 
+			
+			if (isSpare(game[i]) && isNextFrame) {
 				gameScore += getSpareScore(game[i], game[i+1]);
-			} else {
+			} 
+			
+			if (!isSpare(game[i]) && !isStrike(game[i]) ) {
 				gameScore += getFrameScore(game[i]);
 			}
+	
 		}
 		return gameScore;
 	}
