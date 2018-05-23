@@ -294,7 +294,7 @@ class CalculatingScoreTest {
 
 		int gameScore = CalculatingScore.calculateGameScore(game);
 
-		assertEquals(93, gameScore);
+		assertEquals(92, gameScore);
 
 	}
 }
